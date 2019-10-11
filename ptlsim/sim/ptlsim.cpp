@@ -251,7 +251,7 @@ void ConfigurationParser<PTLsimConfig>::reset() {
   #endif
 
   #ifdef NVMAIN
-  nvmain_config_path = "/home/liao/chenyujie/hybrid-main/marss/nvmain/Config/2D_DRAM.config";
+  nvmain_config_path = "/home/suraj/Code/hybrid-memory-simulator/nvmain/Config/2D_DRAM.config";
   #endif
 }
 

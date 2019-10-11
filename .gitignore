@@ -1,0 +1,12 @@
+build/*
+*.pyc
+*.raw
+*.img
+*.a
+*.o
+*.log
+.sconf_temp/*
+*.dblite
+*.backup
+*x86_64
+*.mak

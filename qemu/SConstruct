@@ -39,6 +39,8 @@ if target_base_arch == "x86_64":
 target_path = "%s/target-%s" % (env['source_path'], target_base_arch)
 target_build_path = "%s/%s-softmmu" % (env['source_path'], target['arch'])
 hw_path = "%s/hw" % env['source_path']
+env['CXX'] = "g++-5"
+env['CC'] = env['CXX']
 env['CPPPATH'] = []
 #env['CPPPATH'].append( nvmain_dir )
 env['CPPPATH'].append([".", "..", target_path, env['source_path']])
