@@ -70,11 +70,36 @@ You can use all the regular QEMU command here, like start VM window in VNC give
 vnc :10 etc.  Once the system is booted, you can switch to Monitor mode using
 Ctrl-Alt-2 key and give following command to switch to simulation mode:
 
-    (qemu) simconfig -run -stopinsns 100m -stats [stats-file-name]
+    `(qemu) simconfig -run -stopinsns 100m -stats [stats-file-name]`
 
 To get the list of available simulation options give following command:
 
-    (qemu) simconfig
+    `(qemu) simconfig`
+
+
+    // suraj44
+
+
+Here's what I did to test the ls command:
+You need to figure out the machine 'name'. I was fortuitous in finding the machine name of the machine built using NVMain. I was trying different things out and tried building it with only one core (c=1). An error popped up saying ```Machine 'nvmain_test_shared_l3' requires minimum of 2 contexts while you are compiling with 1 contexts. Skipping this machine 'nvmain_test_shared_l3'. ```TODO: What is the actual way of finding machine names?
+Once you boot the VM, enter the username and password 'root'. You'll find some `start_sim`, `stop_sim` and `kill_sim` binaries present. enter monitor mode using the ctrl+alt+2 shortcut
+Enter the following command after which it will wait for a "run" commmand to start the simulation:
+
+```(qemu) simconfig -machine nvmain_test_shared_l3```
+
+Switch back to guest console mode using the ctrl+alt+1 shortcut.
+
+To simulate the ls command, run the following:
+
+```./start_sim ; ls ; ./stop_sim ; ./kill_sim```
+
+CPU and other machine statistics will be dumped into `pltsim.log` (on host machine)
+
+Memory specific statistics will be dumped into `ptlsim.logDRAM_buffer_nvmain.log`
+
+
+
+
 
 It will print all the simulation options on STDOUT.
 
